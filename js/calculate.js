@@ -68,7 +68,7 @@ var calculation = (function() {
 			if (lcVector.me[2] < lcVector.enemy[2]) {
 				lcReturn = 90.0;
 			}
-			if (lcVector.me[0] > lcVector.enemy[0]) {
+			if (lcVector.me[2] > lcVector.enemy[2]) {
 				lcReturn = 270.0;
 			}
 			return lcReturn;
