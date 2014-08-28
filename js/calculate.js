@@ -6,25 +6,12 @@ var calculation = (function() {
 	};
 
 	return {
-		text2Vector : function(pText) {
-			var lcSplit = pText.replace(' ', '').split(',');
-			return lcSplit;
-		},
-		getVectorById : function(pDomId) {
-			var lcVector = this.text2Vector($('#' + pDomId).val());
-			return lcVector;
-		},
 		calc : function() {
-			lcVector.me = this.getVectorById('txt_vector_me');
-			lcVector.enemy = this.getVectorById('txt_vector_enemy');
-			console.log(lcVector.me);
-			console.log(lcVector.enemy);
+			lcVector.me = uivars.getVectorById('txt_vector_me');
+			lcVector.enemy = uivars.getVectorById('txt_vector_enemy');
 
-			$('#lbl_horizon').html(
-					String(this.calculateHorizion()) + ' ' + String('&#176;'));
-			
-			$('#lbl_vertical').html(
-					String(this.calculateVertical()) + ' ' + String('&#176;'));
+			uivars.writeLblHorizion(this.calculateHorizion());
+			uivars.writeLblVertical(this.calculateVertical());
 		},
 		calculateHorizion : function() {
 			var lcExactDegree = this.getExactDegreeHorizon();
@@ -48,10 +35,10 @@ var calculation = (function() {
 			var lcExactDegree = this.getExactDegreeVertical();
 			if (lcExactDegree === undefined) {
 				var lcBaseDegree = this.getBaseDegreeVertical();
-				
+
 				var lcY = lcVector.enemy[1] - lcVector.me[1];
 				var lcAnkathete = this.getAnkatheteForVertical();
-				
+
 				var lcAspectRatio = lcY / lcAnkathete;
 
 				var lcRadians = Math.atan(lcAspectRatio);
@@ -104,8 +91,10 @@ var calculation = (function() {
 			}
 			return lcReturn;
 		},
-		getAnkatheteForVertical:function() {
-			var lcReturn = Math.sqrt(Math.pow((lcVector.me[0]-lcVector.enemy[0]),2)+Math.pow((lcVector.me[2]-lcVector.enemy[2]),2));
+		getAnkatheteForVertical : function() {
+			var lcReturn = Math.sqrt(Math.pow(
+					(lcVector.me[0] - lcVector.enemy[0]), 2)
+					+ Math.pow((lcVector.me[2] - lcVector.enemy[2]), 2));
 			return lcReturn;
 		}
 	};
