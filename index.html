@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
+<link href="css/main.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/calculate.js"></script>
+<script src="js/coordinate.js"></script>
 </head>
 <body>
 	<input type="text" id="txt_vector_me">
@@ -15,11 +17,15 @@
 	<br>
 	<input type="button" value="Calculate" id="btn_calc">
 	<br>
+	<br> Degree horizon:
+	<span id="lbl_horizon"></span>
 	<br>
-	Degree horizon: <span id="lbl_horizon"></span>
+	<br> Degree vertical:
+	<span id="lbl_vertical"></span>
 	<br>
 	<br>
-	Degree vertical: <span id="lbl_vertical"></span>
+	<canvas id="cvs" width="400" height="400">
+		<p>canvas unsupported</p></canvas>
 </body>
 
 </html>
