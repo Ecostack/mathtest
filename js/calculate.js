@@ -10,6 +10,11 @@ var calculation = (function() {
 			lcVector.me = uivars.getVectorById('txt_vector_me');
 			lcVector.enemy = uivars.getVectorById('txt_vector_enemy');
 
+			
+			coordinateui.reset();
+			coordinateui.drawPointMe(lcVector.me[0],lcVector.me[2]);
+			coordinateui.drawPointEnemy(lcVector.enemy[0],lcVector.enemy[2]);
+			
 			uivars.writeLblHorizion(this.calculateHorizion());
 			uivars.writeLblVertical(this.calculateVertical());
 		},
@@ -69,7 +74,7 @@ var calculation = (function() {
 			if (lcVector.me[0] == lcVector.enemy[0]) {
 				if (lcVector.me[2] < lcVector.enemy[2]) {
 					lcReturn = 90;
-				} else if (lcVector.me[2] < lcVector.enemy[2]) {
+				} else if (lcVector.me[2] > lcVector.enemy[2]) {
 					lcReturn = 270;
 				}
 			}
@@ -77,7 +82,7 @@ var calculation = (function() {
 			if (lcVector.me[2] == lcVector.enemy[2]) {
 				if (lcVector.me[0] < lcVector.enemy[0]) {
 					lcReturn = 180;
-				} else if (lcVector.me[0] < lcVector.enemy[0]) {
+				} else if (lcVector.me[0] > lcVector.enemy[0]) {
 					lcReturn = 0;
 				}
 			}
