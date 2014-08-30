@@ -7,9 +7,8 @@ var calculation = (function() {
 
 	return {
 		calc : function() {
-			lcVector.me = uivars.getVectorById('txt_vector_me');
-			lcVector.enemy = uivars.getVectorById('txt_vector_enemy');
-
+			lcVector.me = uivars.getVectorMe();
+			lcVector.enemy = uivars.getVectorEnemy();
 			
 			coordinateui.reset();
 			coordinateui.drawPointMe(lcVector.me[0],lcVector.me[2]);

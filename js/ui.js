@@ -1,12 +1,14 @@
 var uivars = (function() {
-
+	
 	return {
-		text2Vector : function(pText) {
-			var lcSplit = pText.replace(' ', '').split(',');
-			return lcSplit;
+		getVectorMe : function() {
+			return this.slider2Vector('ME');
 		},
-		getVectorById : function(pDomId) {
-			var lcVector = this.text2Vector($('#' + pDomId).val());
+		getVectorEnemy : function() {
+			return this.slider2Vector('ENEMY');
+		},
+		slider2Vector: function(pName) {
+			var lcVector = [$('#slider_'+pName+'_X').val(), $('#slider_'+pName+'_Y').val(), $('#slider_'+pName+'_Z').val()];
 			return lcVector;
 		},
 		writeLblHorizion : function(pVal) {
@@ -18,3 +20,9 @@ var uivars = (function() {
 	};
 
 })();
+
+$(document).ready(function() {
+	$('.slider').on('change', function(){
+		calculation.calc();
+	});
+});
