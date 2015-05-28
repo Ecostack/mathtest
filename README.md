@@ -1,2 +1,2 @@
-aimbot
+mathtest
 ======
